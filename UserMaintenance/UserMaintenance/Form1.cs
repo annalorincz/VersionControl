@@ -47,9 +47,7 @@ namespace UserMaintenance
                 {
                     foreach (var u in users)
                     {
-                        sw.Write(u.ID);
-                        sw.Write(u.FullName);
-                        sw.WriteLine();
+                        sw.WriteLine(u.ID + ";" + u.FullName);
                     }
                 }
             }
