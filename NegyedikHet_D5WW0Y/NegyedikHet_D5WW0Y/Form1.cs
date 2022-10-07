@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;   //5.
+using System.Reflection;                        
 
 namespace NegyedikHet_D5WW0Y
 {
@@ -22,9 +24,9 @@ namespace NegyedikHet_D5WW0Y
             LoadData();
         }
 
-        private void LoadData()
+        private void LoadData()                     //4.3
         {
-            Flats = context.Flat.ToList();
+            Flats = context.Flat.ToList();              //4.4
         }
     }
 }
