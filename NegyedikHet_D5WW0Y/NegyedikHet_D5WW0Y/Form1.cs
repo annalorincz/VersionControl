@@ -79,6 +79,13 @@ namespace NegyedikHet_D5WW0Y
                  "Alapterület (m2)",
                  "Ár (mFt)",
                  "Négyzetméter ár (Ft/m2)" };
+
+            for (int i = 0; i < headers.Length; i++)        //7.3
+            {
+                xlSheet.Cells[1, 1] = headers[0];
+            }
+
+            object[,] values = new object[Flats.Count, headers.Length];     //7.4
         }
     }
 }
