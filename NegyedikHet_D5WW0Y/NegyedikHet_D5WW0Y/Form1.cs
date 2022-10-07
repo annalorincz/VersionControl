@@ -18,6 +18,10 @@ namespace NegyedikHet_D5WW0Y
         List<Flat> Flats;       //4.1
         RealEstateEntities context = new RealEstateEntities();      //4.2
 
+        Excel.Application xlApp; // A Microsoft Excel alkalmazás        //6.1
+        Excel.Workbook xlWB; // A létrehozott munkafüzet
+        Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
+
         public Form1()
         {
             InitializeComponent();
