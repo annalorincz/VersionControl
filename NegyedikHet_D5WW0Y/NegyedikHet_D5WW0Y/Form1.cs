@@ -14,9 +14,17 @@ namespace NegyedikHet_D5WW0Y
     {
 
         List<Flat> Flats;       //4.1
+        RealEstateEntities context = new RealEstateEntities();      //4.2
+
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            Flats = context.Flat.ToList();
         }
     }
 }
