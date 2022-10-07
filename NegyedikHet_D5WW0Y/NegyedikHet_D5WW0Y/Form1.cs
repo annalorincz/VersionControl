@@ -102,9 +102,13 @@ namespace NegyedikHet_D5WW0Y
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 8] = "Négyzetméter ár (Ft/m2)";
+                values[counter, 8] = "Négyzetméter ár (Ft/m2)";     //7.9?
                 counter++;
             }
+
+            xlSheet.get_Range(                                      //7.8
+             GetCell(2, 1),
+             GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
         }
 
         private string GetCell(int x, int y)            //7.7 Excel koordináták meghatározása
