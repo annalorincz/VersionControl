@@ -54,6 +54,7 @@ namespace NegyedikHet_D5WW0Y
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
             }
+
             catch (Exception ex) // Hibakezelés a beépített hibaüzenettel
             {
                 string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
@@ -86,6 +87,24 @@ namespace NegyedikHet_D5WW0Y
             }
 
             object[,] values = new object[Flats.Count, headers.Length];     //7.4
+
+            int counter = 0;
+            foreach (Flat f in Flats)                   //7.5
+            {
+                values[counter, 0] = f.Code;
+                values[counter, 1] = f.Vendor;
+                values[counter, 2] = f.Side;
+                values[counter, 3] = f.District;
+
+                if (f.Elevator) { values[counter, 4] = "Van"; }     //7.6
+                else { values[counter, 4] = "Nincs"; }
+
+                values[counter, 5] = f.NumberOfRooms;
+                values[counter, 6] = f.FloorArea;
+                values[counter, 7] = f.Price;
+                values[counter, 8] = "Négyzetméter ár (Ft/m2)";
+                counter++;
+            }
         }
     }
 }
