@@ -12,6 +12,8 @@ namespace NegyedikHet_D5WW0Y
 {
     public partial class Form1 : Form
     {
+
+        List<Flat> Flats;       //4.1
         public Form1()
         {
             InitializeComponent();
