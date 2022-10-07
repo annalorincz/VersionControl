@@ -104,6 +104,15 @@ namespace NegyedikHet_D5WW0Y
                 values[counter, 7] = f.Price;
                 values[counter, 8] = "Négyzetméter ár (Ft/m2)";     //7.9?
                 counter++;
+
+                Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));         //8.1
+                headerRange.Font.Bold = true;
+                headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                headerRange.EntireColumn.AutoFit();
+                headerRange.RowHeight = 40;
+                headerRange.Interior.Color = Color.LightBlue;
+                headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
             }
 
             xlSheet.get_Range(                                      //7.8
