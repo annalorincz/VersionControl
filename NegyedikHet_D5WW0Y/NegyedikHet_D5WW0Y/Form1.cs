@@ -114,13 +114,20 @@ namespace NegyedikHet_D5WW0Y
                 headerRange.Interior.Color = Color.LightBlue;
                 headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
+                //tábla szegély
                 int lastRowID = xlSheet.UsedRange.Rows.Count;
                 Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, headers.Length));
                 tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
+                //első oszlop
                 Excel.Range columnRange = xlSheet.get_Range(GetCell(2, 1), GetCell(lastRowID, 1));
                 columnRange.Font.Bold = true;
                 columnRange.Interior.Color = Color.LightYellow;
+
+                //utolsó oszlop
+                Excel.Range lastColumnRange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(lastRowID, headers.Length));
+                lastColumnRange.Interior.Color = Color.LightGreen;
+
             }
 
             xlSheet.get_Range(                                      //7.8
