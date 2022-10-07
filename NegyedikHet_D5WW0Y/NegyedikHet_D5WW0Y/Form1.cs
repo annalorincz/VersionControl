@@ -48,7 +48,7 @@ namespace NegyedikHet_D5WW0Y
                 xlSheet = xlWB.ActiveSheet;
 
                 // Tábla létrehozása
-                //CreateTable();
+                CreateTable();
 
                 // Control átadása a felhasználónak
                 xlApp.Visible = true;
@@ -65,6 +65,20 @@ namespace NegyedikHet_D5WW0Y
                 xlWB = null;
                 xlApp = null;
             }
+        }
+
+        private void CreateTable()              //7.1
+        {
+            string[] headers = new string[] {   //7.2
+                 "Kód",
+                 "Eladó",
+                 "Oldal",
+                 "Kerület",
+                 "Lift",
+                 "Szobák száma",
+                 "Alapterület (m2)",
+                 "Ár (mFt)",
+                 "Négyzetméter ár (Ft/m2)" };
         }
     }
 }
