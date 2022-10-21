@@ -26,6 +26,15 @@ namespace D5WW0Y_OtodikHet
             var response = mnbCurrencie.GetCurrencies(request);
             var result = response.GetCurrenciesResult;
 
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var childElement = (XmlElement)element.ChildNodes[0];
+                var c = (childElement.InnerText).ToString();
+                if (childElement == null) continue;
+            }
+
             RefreshData();
         }
 
