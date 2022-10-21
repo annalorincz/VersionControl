@@ -41,9 +41,9 @@ namespace D5WW0Y_OtodikHet
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 13);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(592, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(252, 385);
             this.dataGridView1.TabIndex = 0;
             // 
             // chart1
@@ -52,13 +52,13 @@ namespace D5WW0Y_OtodikHet
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(47, 42);
+            this.chart1.Location = new System.Drawing.Point(286, 25);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(552, 338);
+            this.chart1.Size = new System.Drawing.Size(438, 352);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -66,7 +66,7 @@ namespace D5WW0Y_OtodikHet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 409);
+            this.ClientSize = new System.Drawing.Size(736, 412);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";

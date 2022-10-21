@@ -23,6 +23,7 @@ namespace D5WW0Y_OtodikHet
             //WebServer();
             dataGridView1.DataSource = Rates;
             XmlLoad(WebServer());
+            DataDiagram();
         }
 
         private string WebServer()
