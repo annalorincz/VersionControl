@@ -1,4 +1,5 @@
-﻿using D5WW0Y_OtodikHet.MnbServiceReference;
+﻿using D5WW0Y_OtodikHet.Entities;
+using D5WW0Y_OtodikHet.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace D5WW0Y_OtodikHet
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +23,6 @@ namespace D5WW0Y_OtodikHet
         private void GetExchangeRates()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
-
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = "EUR",
@@ -32,5 +33,7 @@ namespace D5WW0Y_OtodikHet
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
         }
+
+        BindingList<RateData> rates = new BindingList<RateData>();
     }
 }
