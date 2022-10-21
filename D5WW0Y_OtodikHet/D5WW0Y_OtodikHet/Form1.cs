@@ -20,6 +20,12 @@ namespace D5WW0Y_OtodikHet
         public Form1()
         {
             InitializeComponent();
+
+            var mnbCurrencie = new MNBArfolyamServiceSoapClient();      //8.
+            var request = new GetExchangeRatesRequestBody();
+            var response = mnbCurrencie.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+
             RefreshData();
         }
 
@@ -30,6 +36,7 @@ namespace D5WW0Y_OtodikHet
             dataGridView1.DataSource = Rates;
             XmlLoad(WebServer());
             DataDiagram();
+            //comboBox1.DataSource = Currencies;
         }
 
         private string WebServer()
@@ -48,6 +55,7 @@ namespace D5WW0Y_OtodikHet
         } 
         
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
 
         private void XmlLoad(string result)
         {
