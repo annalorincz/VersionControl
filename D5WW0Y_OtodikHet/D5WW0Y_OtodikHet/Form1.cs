@@ -19,9 +19,12 @@ namespace D5WW0Y_OtodikHet
         public Form1()
         {
             InitializeComponent();
+            //WebServer();
+            dataGridView1.DataSource = Rates;
+            XmlLoad(WebServer());
         }
 
-        private void GetExchangeRates()
+        private string WebServer()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
@@ -33,7 +36,13 @@ namespace D5WW0Y_OtodikHet
 
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
+            return result;
+        } 
+        
+        BindingList<RateData> Rates = new BindingList<RateData>();
 
+        private void XmlLoad(string result)
+        {
             var xml = new XmlDocument();        //xml példányosítás
             xml.LoadXml(result);
             foreach (XmlElement element in xml.DocumentElement)
@@ -54,9 +63,8 @@ namespace D5WW0Y_OtodikHet
                 if (unit != 0)
                     rate.Value = value / unit;
             }
-
         }
 
-        BindingList<RateData> Rates = new BindingList<RateData>();
+       
     }
 }
