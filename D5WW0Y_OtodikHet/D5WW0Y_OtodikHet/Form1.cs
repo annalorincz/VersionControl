@@ -20,6 +20,12 @@ namespace D5WW0Y_OtodikHet
         public Form1()
         {
             InitializeComponent();
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
             //WebServer();
             dataGridView1.DataSource = Rates;
             XmlLoad(WebServer());
@@ -71,21 +77,34 @@ namespace D5WW0Y_OtodikHet
         {
             chart1.DataSource = Rates;   //formon új chart -> adatforrása Rates
 
-            var series = chart1.Series[0];
-            series.ChartType = SeriesChartType.Line;
+            var series = chart1.Series[0];      //Series = tömb, alapértelmezetten egy elemű
+            series.ChartType = SeriesChartType.Line;        //adatsor típusa
             series.XValueMember = "Date";
             series.YValueMembers = "Value";
-            series.BorderWidth = 2;
+            series.BorderWidth = 2;                 //kétszeres vastagság
 
-            var legend = chart1.Legends[0];
+            var legend = chart1.Legends[0];         //ne látszódjon oldalt a címke
             legend.Enabled = false;
 
             var chartArea = chart1.ChartAreas[0];
-            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisX.MajorGrid.Enabled = false;  //ne látszódjanak a fő grid vonalak
             chartArea.AxisY.MajorGrid.Enabled = false;
             chartArea.AxisY.IsStartedFromZero = false;
         }
 
-       
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }
