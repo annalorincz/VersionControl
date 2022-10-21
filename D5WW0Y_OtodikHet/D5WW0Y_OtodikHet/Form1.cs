@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace D5WW0Y_OtodikHet
 {
@@ -32,8 +33,30 @@ namespace D5WW0Y_OtodikHet
 
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
+
+            var xml = new XmlDocument();        //xml példányosítás
+            xml.LoadXml(result);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate = new RateData();
+                Rates.Add(rate);
+
+                //Dátum - "date" nevű attribútum értéke kell -> GetAttribure
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+
+                //Valuta - lekérdezi az aktuális elem első gyermek elemét egy változóba (ChildNodes)
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+
+                //Érték - 2 rész: alapegység(unit), egységhez tartozó érték(InnerText)
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                    rate.Value = value / unit;
+            }
+
         }
 
-        BindingList<RateData> rates = new BindingList<RateData>();
+        BindingList<RateData> Rates = new BindingList<RateData>();
     }
 }
