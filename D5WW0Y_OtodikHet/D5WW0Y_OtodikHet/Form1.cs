@@ -22,7 +22,7 @@ namespace D5WW0Y_OtodikHet
             InitializeComponent();
 
             var mnbCurrencie = new MNBArfolyamServiceSoapClient();      //8.
-            var request = new GetExchangeRatesRequestBody();
+            var request = new GetCurrenciesRequestBody();
             var response = mnbCurrencie.GetCurrencies(request);
             var result = response.GetCurrenciesResult;
 
