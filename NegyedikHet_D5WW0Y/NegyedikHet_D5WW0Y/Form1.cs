@@ -83,7 +83,7 @@ namespace NegyedikHet_D5WW0Y
 
             for (int i = 0; i < headers.Length; i++)        //7.3
             {
-                xlSheet.Cells[1, 1] = headers[0];
+                xlSheet.Cells[1, i+1] = headers[i];
             }
 
             object[,] values = new object[Flats.Count, headers.Length];     //7.4
