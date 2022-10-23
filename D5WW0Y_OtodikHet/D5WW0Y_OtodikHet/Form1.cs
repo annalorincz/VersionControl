@@ -21,18 +21,20 @@ namespace D5WW0Y_OtodikHet
         {
             InitializeComponent();
 
-            var mnbCurrencie = new MNBArfolyamServiceSoapClient();      //8.
+            var mnbCurrencies = new MNBArfolyamServiceSoapClient();      //8.
             var request = new GetCurrenciesRequestBody();
-            var response = mnbCurrencie.GetCurrencies(request);
+            var response = mnbCurrencies.GetCurrencies(request);
             var result = response.GetCurrenciesResult;
 
             var xml = new XmlDocument();
             xml.LoadXml(result);
             foreach (XmlElement element in xml.DocumentElement)
             {
-                var childElement = (XmlElement)element.ChildNodes[0];
-                var c = (childElement.InnerText).ToString();
-                if (childElement == null) continue;
+                string currencies = element.InnerText;
+                for (int i = 0; i < currencies.Length; i += 3)
+                {
+                    Currencies.Add(currencies.Substring(i, 3));
+                }
             }
 
             RefreshData();
@@ -41,11 +43,11 @@ namespace D5WW0Y_OtodikHet
         private void RefreshData()
         {
             Rates.Clear();
-            //WebServer();
+            WebServer();
             dataGridView1.DataSource = Rates;
             XmlLoad(WebServer());
             DataDiagram();
-            //comboBox1.DataSource = Currencies;
+            comboBox1.DataSource = Currencies;
         }
 
         private string WebServer()
@@ -80,6 +82,8 @@ namespace D5WW0Y_OtodikHet
 
                 //Valuta - lekérdezi az aktuális elem első gyermek elemét egy változóba (ChildNodes)
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)                   //8.5.
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 //Érték - 2 rész: alapegység(unit), egységhez tartozó érték(InnerText)
