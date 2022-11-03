@@ -55,5 +55,15 @@ namespace D5WW0Y_HatodikHet
                 _toys.Remove(oldestToy);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
