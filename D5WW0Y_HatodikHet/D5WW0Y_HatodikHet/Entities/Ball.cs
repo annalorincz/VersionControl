@@ -24,7 +24,7 @@ namespace D5WW0Y_HatodikHet.Entities
             DrawImage(e.Graphics);
         }
 
-        private void DrawImage(Graphics g)
+        protected void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace D5WW0Y_HatodikHet.Abstractions
 {
-    class Toy : Label
+    public abstract class Toy : Label
     {
         public Toy()
         {
@@ -24,12 +24,9 @@ namespace D5WW0Y_HatodikHet.Abstractions
             DrawImage(e.Graphics);
         }
 
-        private void DrawImage(Graphics g)
-        {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
+        protected abstract void DrawImage(Graphics g);
 
-        public void MoveToy()
+        public virtual void MoveToy()
         {
             Left += 1;
         }
