@@ -86,7 +86,7 @@ namespace D5WW0Y_HatodikHet
             var button = (Button)sender;
             var colorPicker = new ColorDialog();
 
-            colorPicker.Color = button3.BackColor;
+            colorPicker.Color = button.BackColor;
             if (colorPicker.ShowDialog() != DialogResult.OK)
                 return;
             button.BackColor = colorPicker.Color;
