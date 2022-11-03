@@ -1,5 +1,6 @@
 ﻿using D5WW0Y_HatodikHet.Abstractions;
 using D5WW0Y_HatodikHet.Entities;
+using D5WW0Y_HatodikHet.Entitites;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,6 +94,15 @@ namespace D5WW0Y_HatodikHet
             if (colorPicker.ShowDialog() != DialogResult.OK)
                 return;
             button.BackColor = colorPicker.Color;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                ribbonColor = button5.BackColor,
+                boxColor = button6.BackColor
+            };
         }
     }
 }
