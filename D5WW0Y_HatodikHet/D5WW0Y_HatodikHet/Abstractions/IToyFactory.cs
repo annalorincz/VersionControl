@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace D5WW0Y_HatodikHet.Abstractions
 {
-    interface IToyFactory
+    public interface IToyFactory
     {
         Toy CreateNew();
     }

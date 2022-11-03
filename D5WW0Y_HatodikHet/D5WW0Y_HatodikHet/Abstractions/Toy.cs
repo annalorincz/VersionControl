@@ -32,4 +32,3 @@ namespace D5WW0Y_HatodikHet.Abstractions
         }
     }
 }
-}
