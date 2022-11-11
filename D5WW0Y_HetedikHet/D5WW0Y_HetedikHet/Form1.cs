@@ -18,6 +18,8 @@ namespace D5WW0Y_HetedikHet
         public Form1()
         {
             InitializeComponent();
+            Ticks = context.Tick.ToList();
+            dataGridView1.DataSource = Ticks;
         }
     }
 }
