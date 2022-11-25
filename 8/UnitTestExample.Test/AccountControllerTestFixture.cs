@@ -32,11 +32,11 @@ namespace UnitTestExample.Test
 
         [
             Test,
-            TestCase("12341234", false),
-            TestCase("Aaaaaaaa", false),
-            TestCase("AAAAAAAA", false),
-            TestCase("acb1234", false),
-            TestCase("abcd1234", true),
+            TestCase("aaaaAA_*", false),    //nincs szám
+            TestCase("AAAA12_*", false),    //nincs kisbetű
+            TestCase("aaa123*_", false),    //nincs nagybetű
+            TestCase("acb1*", false),       //rövid jelszó
+            TestCase("Abc123*_", true),     //megfelelő jelszó
         ]
 
         public void TestValidatePassword(string password, bool expectedResult)
