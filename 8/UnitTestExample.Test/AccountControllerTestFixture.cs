@@ -45,7 +45,7 @@ namespace UnitTestExample.Test
             var accountController = new AccountController();
 
             // Act
-            var actualResult = accountController.ValidateEmail(password);
+            var actualResult = accountController.ValidatePassword(password);
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
