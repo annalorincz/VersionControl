@@ -17,6 +17,8 @@ namespace D5WW0Y_TizedikHet
         GameController gc = new GameController();
         GameArea ga;
 
+        Brain winnerBrain = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -68,6 +70,17 @@ namespace D5WW0Y_TizedikHet
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+
+
+            var winners = from p in topPerformers
+                          where p.IsWinner
+                          select p;
+            if (winners.Count() > 0)
+            {
+                winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                gc.GameOver -= Gc_GameOver;
+                return;
+            }
         }
 
 
